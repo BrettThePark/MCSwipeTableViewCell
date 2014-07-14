@@ -328,6 +328,10 @@ typedef NS_ENUM(NSUInteger, MCSwipeTableViewCellDirection) {
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     
+    if (self.isEditing) {
+      return NO;
+    }
+
     if ([gestureRecognizer class] == [UIPanGestureRecognizer class]) {
         
         UIPanGestureRecognizer *g = (UIPanGestureRecognizer *)gestureRecognizer;
